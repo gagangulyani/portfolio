@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Menu, X, Code, Github, Linkedin, Mail, Music, User, LogOut } from "lucide-react";
+import { Menu, X, Code, Github, Linkedin, User, LogOut } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -42,7 +42,6 @@ const Navigation = () => {
     { label: "About", href: "#about", type: "scroll" },
     { label: "Experience", href: "#experience", type: "scroll" },
     { label: "Projects", href: "#projects", type: "scroll" },
-    { label: "Music", href: "/music", type: "navigate" },
     { label: "Blog", href: "#blog", type: "scroll" },
     { label: "Contact", href: "#contact", type: "scroll" },
   ];
@@ -87,8 +86,8 @@ const Navigation = () => {
             <div className="p-2 bg-primary/10 rounded-lg">
               <Code className="w-6 h-6 text-primary" />
             </div>
-            <span className="text-xl font-bold neon-text">Gagan Deep</span>
-            <Badge variant="secondary" className="hidden md:block text-xs neon-glow">
+            <span className="text-xl font-bold text-primary">Gagan Deep</span>
+            <Badge variant="secondary" className="hidden md:block text-xs">
               Available
             </Badge>
           </div>
@@ -99,9 +98,8 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.href, item.type)}
-                className="text-muted-foreground hover:text-primary transition-colors font-medium flex items-center gap-1"
+                className="text-muted-foreground hover:text-primary transition-colors font-medium"
               >
-                {item.label === "Music" && <Music className="w-4 h-4" />}
                 {item.label}
               </button>
             ))}
@@ -110,16 +108,16 @@ const Navigation = () => {
           {/* Social Links & CTA */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" className="neon-glow hover:bg-primary/20">
+            <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
               <Github className="w-4 h-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="neon-glow hover:bg-primary/20">
+            <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
               <Linkedin className="w-4 h-4" />
             </Button>
             
             {user ? (
               <div className="flex items-center gap-2">
-                <Button variant="ghost" size="icon" className="neon-glow">
+                <Button variant="ghost" size="icon">
                   <User className="w-4 h-4" />
                 </Button>
                 <Button 
@@ -135,7 +133,7 @@ const Navigation = () => {
             ) : (
               <Button 
                 size="sm" 
-                className="bg-gradient-neon hover:shadow-neon"
+                className="bg-primary hover:bg-primary/90"
                 onClick={() => navigate("/auth")}
               >
                 <User className="w-4 h-4 mr-2" />
@@ -163,9 +161,8 @@ const Navigation = () => {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.href, item.type)}
-                  className="block w-full text-left py-2 text-muted-foreground hover:text-primary transition-colors font-medium flex items-center gap-2"
+                  className="block w-full text-left py-2 text-muted-foreground hover:text-primary transition-colors font-medium"
                 >
-                  {item.label === "Music" && <Music className="w-4 h-4" />}
                   {item.label}
                 </button>
               ))}
@@ -173,17 +170,17 @@ const Navigation = () => {
               <div className="pt-4 border-t border-border/50">
                 <div className="flex items-center gap-3 mb-4">
                   <ThemeToggle />
-                  <Button variant="ghost" size="icon" className="neon-glow hover:bg-primary/20">
+                  <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
                     <Github className="w-4 h-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" className="neon-glow hover:bg-primary/20">
+                  <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
                     <Linkedin className="w-4 h-4" />
                   </Button>
                 </div>
                 
                 {user ? (
                   <div className="space-y-2">
-                    <Button variant="ghost" size="sm" className="w-full justify-start neon-glow">
+                    <Button variant="ghost" size="sm" className="w-full justify-start">
                       <User className="w-4 h-4 mr-2" />
                       Profile
                     </Button>
@@ -200,7 +197,7 @@ const Navigation = () => {
                 ) : (
                   <Button 
                     size="sm" 
-                    className="w-full bg-gradient-neon hover:shadow-neon"
+                    className="w-full bg-primary hover:bg-primary/90"
                     onClick={() => navigate("/auth")}
                   >
                     <User className="w-4 h-4 mr-2" />

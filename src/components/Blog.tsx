@@ -130,7 +130,7 @@ const Blog = () => {
 
         {/* Featured Post */}
         {filteredPosts.length > 0 && filteredPosts[0].featured && (
-          <Card className="card-hover bg-gradient-primary/5 border-primary/20 mb-12">
+          <Card className="card-hover clean-border mb-12">
             <CardHeader>
               <div className="flex items-center gap-2 mb-2">
                 <Badge className="bg-primary text-primary-foreground">Featured</Badge>
@@ -176,7 +176,7 @@ const Blog = () => {
         {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.slice(filteredPosts[0]?.featured ? 1 : 0).map((post, index) => (
-            <Card key={index} className="card-hover bg-card/50 backdrop-blur-sm border-primary/10 group">
+            <Card key={index} className="card-hover clean-border group">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge variant="outline" className="text-xs">
