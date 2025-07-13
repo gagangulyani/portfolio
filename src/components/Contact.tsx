@@ -21,8 +21,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "gagan@example.com",
-      href: "mailto:gagan@example.com"
+      value: "gagangulyanig@gmail.com",
+      href: "mailto:gagangulyanig@gmail.com"
     },
     {
       icon: MapPin,
@@ -97,86 +97,11 @@ const Contact = () => {
             Let's Work <span className="gradient-text">Together</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from you!
+            Ready to collaborate? Reach out directly via email or connect with me on social platforms!
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          
-          {/* Contact Form */}
-          <Card className="bg-card/50 backdrop-blur-sm border-primary/10">
-            <CardHeader>
-              <CardTitle className="text-2xl gradient-text">Send a Message</CardTitle>
-              <p className="text-muted-foreground">
-                Fill out the form and I'll get back to you within 24 hours.
-              </p>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">Name</label>
-                    <Input
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your full name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">Email</label>
-                    <Input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your.email@example.com"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Subject</label>
-                  <Input
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="What's this about?"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Message</label>
-                  <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell me about your project, ideas, or just say hello!"
-                    rows={6}
-                    required
-                  />
-                </div>
-
-                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
+        <div className="max-w-4xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-8">
             <div>

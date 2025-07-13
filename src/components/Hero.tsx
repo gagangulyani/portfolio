@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail, Download, ExternalLink, Users } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
-import gaganProfile from "@/assets/gagan-profile.jpg";
+import gaganProfile from "/lovable-uploads/ef8139b6-2ceb-4d3f-bc94-f96737ae8d4d.png";
 import delhiDevsLogo from "@/assets/delhidevs-logo.png";
 
 const Hero = () => {

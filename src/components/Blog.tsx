@@ -1,15 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Calendar, Clock, ArrowRight, Search, Tag } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [publishedBlogs, setPublishedBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  const blogPosts = [
+  useEffect(() => {
+    fetchPublishedBlogs();
+  }, []);
+
+  const fetchPublishedBlogs = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('blogs')
+        .select('*')
+        .eq('published', true)
+        .order('published_at', { ascending: false });
+
+      if (error) throw error;
+      setPublishedBlogs(data || []);
+    } catch (error) {
+      console.error('Error fetching blogs:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const dummyBlogPosts = [
     {
       title: "Automating Your Workflow with Python: File Organizer",
       excerpt: "Learn how I built a Python script to automatically organize my downloads folder, saving hours of manual work every week.",
@@ -67,9 +93,21 @@ const Blog = () => {
     }
   ];
 
-  const categories = ["All", ...new Set(blogPosts.map(post => post.category))];
+  // Combine published blogs from database with dummy data for demo
+  const allBlogPosts = [...publishedBlogs.map(blog => ({
+    title: blog.title,
+    excerpt: blog.excerpt || blog.content.substring(0, 150) + '...',
+    category: blog.tags?.[0] || "General",
+    date: blog.published_at || blog.created_at,
+    readTime: Math.ceil(blog.content.length / 1000) + " min read",
+    tags: blog.tags || [],
+    slug: blog.slug,
+    featured: false
+  })), ...dummyBlogPosts];
 
-  const filteredPosts = blogPosts.filter(post => {
+  const categories = ["All", ...new Set(allBlogPosts.map(post => post.category))];
+
+  const filteredPosts = allBlogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -165,7 +203,10 @@ const Blog = () => {
                 ))}
               </div>
               
-              <Button className="mt-4">
+              <Button 
+                className="mt-4"
+                onClick={() => filteredPosts[0].slug ? navigate(`/blog/${filteredPosts[0].slug}`) : window.open('#', '_blank')}
+              >
                 Read Full Article
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -215,7 +256,12 @@ const Blog = () => {
                   )}
                 </div>
                 
-                <Button variant="ghost" size="sm" className="w-full justify-between p-0 h-auto text-primary hover:text-primary-foreground">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="w-full justify-between p-0 h-auto text-primary hover:text-primary-foreground"
+                  onClick={() => post.slug ? navigate(`/blog/${post.slug}`) : window.open('#', '_blank')}
+                >
                   Read More
                   <ArrowRight className="w-4 h-4" />
                 </Button>

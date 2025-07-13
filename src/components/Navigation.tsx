@@ -117,8 +117,13 @@ const Navigation = () => {
             
             {user ? (
               <div className="flex items-center gap-2">
-                <Button variant="ghost" size="icon">
-                  <User className="w-4 h-4" />
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={() => navigate("/dashboard")}
+                >
+                  <User className="w-4 h-4 mr-2" />
+                  Dashboard
                 </Button>
                 <Button 
                   variant="outline" 
@@ -180,9 +185,14 @@ const Navigation = () => {
                 
                 {user ? (
                   <div className="space-y-2">
-                    <Button variant="ghost" size="sm" className="w-full justify-start">
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="w-full justify-start"
+                      onClick={() => navigate("/dashboard")}
+                    >
                       <User className="w-4 h-4 mr-2" />
-                      Profile
+                      Dashboard
                     </Button>
                     <Button 
                       variant="outline" 

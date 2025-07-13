@@ -17,60 +17,28 @@ const Projects = () => {
         "Real-time analytics and reporting",
         "Enterprise-grade security and compliance"
       ],
+      isWorkProject: true,
       links: {
-        demo: "#",
-        github: "#"
+        demo: "https://patronum.io",
+        github: null
       }
     },
     {
-      title: "Music Production Portfolio",
-      description: "Created and produced music content reaching 600K+ streams across YouTube and Spotify, including collaborations with artists like Khamsin.",
-      category: "Creative",
-      icon: Play,
-      technologies: ["Audio Production", "Digital Marketing", "Content Strategy", "Collaboration"],
-      highlights: [
-        "600K+ streams across platforms",
-        "Successful artist collaborations",
-        "Global audience engagement",
-        "Professional music distribution"
-      ],
-      links: {
-        demo: "#",
-        github: "#"
-      }
-    },
-    {
-      title: "Developer Portfolio & Blog",
-      description: "Modern, responsive portfolio website with integrated blog functionality, built with React and optimized for SEO and performance.",
-      category: "Web Development",
-      icon: Code,
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "SEO Optimization"],
-      highlights: [
-        "Fully responsive design",
-        "SEO-optimized blog system",
-        "Modern animations and interactions",
-        "Performance optimized"
-      ],
-      links: {
-        demo: "#",
-        github: "#"
-      }
-    },
-    {
-      title: "Community Building Platform",
-      description: "Platform designed to foster and grow tech communities, providing tools for engagement, networking, and knowledge sharing.",
+      title: "Delhi Devs",
+      description: "A thriving tech community platform connecting developers, fostering collaboration, and driving innovation in Delhi's tech ecosystem.",
       category: "Community",
       icon: Globe,
-      technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Express"],
+      technologies: ["Community Building", "Event Management", "Networking", "Mentorship"],
       highlights: [
-        "Real-time community interactions",
-        "Event management system",
-        "Networking and mentorship features",
-        "Content sharing and collaboration tools"
+        "Growing developer community in Delhi",
+        "Regular tech events and meetups",
+        "Knowledge sharing platform",
+        "Career growth and networking opportunities"
       ],
+      isHighlighted: true,
       links: {
-        demo: "#",
-        github: "#"
+        demo: "https://delhidevs.com",
+        github: null
       }
     }
   ];
@@ -140,14 +108,27 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex gap-3 pt-4">
-                  <Button size="sm" className="flex-1">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </Button>
-                  <Button variant="outline" size="sm" className="flex-1">
-                    <Github className="w-4 h-4 mr-2" />
-                    Source
-                  </Button>
+                  {project.links.demo && (
+                    <Button 
+                      size="sm" 
+                      className={`${project.isHighlighted ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300' : ''} ${project.links.github ? 'flex-1' : 'w-full'}`}
+                      onClick={() => window.open(project.links.demo, '_blank')}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      {project.isHighlighted ? 'Visit Delhi Devs' : 'Live Demo'}
+                    </Button>
+                  )}
+                  {project.links.github && !project.isWorkProject && (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => window.open(project.links.github, '_blank')}
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      Source
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
