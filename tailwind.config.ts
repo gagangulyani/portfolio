@@ -112,7 +112,13 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-secondary': 'var(--gradient-secondary)',
-				'gradient-hero': 'var(--gradient-hero)'
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-neon': 'var(--gradient-neon)'
+			},
+			boxShadow: {
+				'glow': 'var(--shadow-glow)',
+				'neon': 'var(--shadow-neon)',
+				'elegant': 'var(--shadow-elegant)'
 			}
 		}
 	},

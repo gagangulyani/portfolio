@@ -2,53 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Modern Portfolio Design System - Gagan Deep Singh 
-All colors MUST be HSL.
+/* Dark Neon Nature Portfolio - Gagan Deep Singh 
+All colors MUST be HSL. Togglable theme with neon/nature elements.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 3%;
-    --foreground: 0 0% 98%;
+    /* Light mode - nature inspired */
+    --background: 120 20% 97%;
+    --foreground: 120 15% 10%;
 
-    --card: 240 10% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 120 25% 95%;
+    --card-foreground: 120 15% 10%;
 
-    --popover: 240 10% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 120 25% 95%;
+    --popover-foreground: 120 15% 10%;
 
-    --primary: 263 70% 60%;
+    --primary: 142 76% 36%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 263 70% 70%;
+    --primary-glow: 142 86% 46%;
 
-    --secondary: 240 6% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 120 10% 85%;
+    --secondary-foreground: 120 15% 20%;
 
-    --muted: 240 6% 12%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 120 15% 90%;
+    --muted-foreground: 120 8% 45%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 82 84% 67%;
+    --accent-foreground: 120 15% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 15%;
-    --ring: 263 70% 60%;
+    --border: 120 15% 80%;
+    --input: 120 20% 92%;
+    --ring: 142 76% 36%;
 
-    /* Custom tokens for portfolio */
-    --gradient-primary: linear-gradient(135deg, hsl(263 70% 60%), hsl(142 76% 36%));
-    --gradient-secondary: linear-gradient(135deg, hsl(240 10% 8%), hsl(240 6% 15%));
-    --gradient-hero: linear-gradient(135deg, hsl(263 70% 60% / 0.1), hsl(142 76% 36% / 0.1));
+    /* Nature-inspired gradients for light mode */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%), hsl(82 84% 67%));
+    --gradient-secondary: linear-gradient(135deg, hsl(120 25% 95%), hsl(120 15% 90%));
+    --gradient-hero: linear-gradient(135deg, hsl(142 76% 36% / 0.1), hsl(82 84% 67% / 0.1));
+    --gradient-neon: linear-gradient(135deg, hsl(142 86% 46%), hsl(82 94% 77%));
     
-    --shadow-glow: 0 0 40px hsl(263 70% 60% / 0.3);
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(142 76% 36% / 0.3);
+    --shadow-neon: 0 0 20px hsl(82 84% 67% / 0.5);
+    --shadow-elegant: 0 10px 30px -10px hsl(120 15% 20% / 0.2);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-glow: all 0.4s ease-in-out;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -68,34 +72,45 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Using the same dark theme as default since this portfolio is dark-themed */
-    --background: 0 0% 3%;
-    --foreground: 0 0% 98%;
+    /* Dark neon nature theme */
+    --background: 120 15% 4%;
+    --foreground: 120 20% 95%;
 
-    --card: 240 10% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 120 25% 6%;
+    --card-foreground: 120 20% 95%;
 
-    --popover: 240 10% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 120 25% 6%;
+    --popover-foreground: 120 20% 95%;
 
-    --primary: 263 70% 60%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 142 86% 56%;
+    --primary-foreground: 120 15% 4%;
+    --primary-glow: 142 96% 66%;
 
-    --secondary: 240 6% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 120 20% 12%;
+    --secondary-foreground: 120 20% 85%;
 
-    --muted: 240 6% 12%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 120 25% 8%;
+    --muted-foreground: 120 15% 65%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 82 94% 77%;
+    --accent-foreground: 120 15% 4%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 15%;
-    --ring: 263 70% 60%;
+    --border: 120 25% 15%;
+    --input: 120 25% 10%;
+    --ring: 142 86% 56%;
+
+    /* Dark neon gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 86% 56%), hsl(82 94% 77%));
+    --gradient-secondary: linear-gradient(135deg, hsl(120 25% 6%), hsl(120 20% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(142 86% 56% / 0.1), hsl(82 94% 77% / 0.1));
+    --gradient-neon: linear-gradient(135deg, hsl(142 96% 66%), hsl(82 100% 87%));
+    
+    --shadow-glow: 0 0 40px hsl(142 86% 56% / 0.4);
+    --shadow-neon: 0 0 30px hsl(82 94% 77% / 0.6);
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.8);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -126,12 +141,39 @@ All colors MUST be HSL.
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
   
+  .neon-text {
+    @apply text-primary;
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
+    transition: var(--transition-glow);
+  }
+  
+  .neon-text:hover {
+    text-shadow: 0 0 15px hsl(var(--primary) / 0.7), 0 0 30px hsl(var(--primary) / 0.5);
+  }
+  
   .hero-glow {
     box-shadow: var(--shadow-glow);
   }
   
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition-glow);
+  }
+  
+  .neon-glow:hover {
+    box-shadow: 0 0 40px hsl(var(--accent) / 0.8);
+  }
+  
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .nature-border {
+    border: 1px solid hsl(var(--primary) / 0.3);
+    background: linear-gradient(135deg, 
+      hsl(var(--card)) 0%, 
+      hsl(var(--primary) / 0.05) 50%, 
+      hsl(var(--card)) 100%);
   }
   
   .animate-fade-in {
@@ -144,6 +186,10 @@ All colors MUST be HSL.
   
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
   }
 }
 
@@ -175,5 +221,14 @@ All colors MUST be HSL.
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--accent) / 0.4);
   }
 }
