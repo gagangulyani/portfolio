@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+// import { supabase } from '@/integrations/supabase/client';
 
 export const useAnalytics = () => {
   useEffect(() => {
@@ -24,18 +24,10 @@ export const useAnalytics = () => {
         }
 
         // Track the page view
-        await supabase
-          .from('analytics')
-          .insert([{
-            page_path: window.location.pathname,
-            user_agent: navigator.userAgent,
-            country: locationData.country || 'Unknown',
-            city: locationData.city || 'Unknown',
-            referrer: document.referrer || 'direct',
-            session_id: sessionId
-          }]);
+        // supabase analytics disabled
+        console.log('Analytics tracking disabled');
       } catch (error) {
-        console.error('Analytics tracking error:', error);
+        // No analytics error handling needed
       }
     };
 

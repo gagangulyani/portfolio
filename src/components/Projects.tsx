@@ -6,6 +6,24 @@ import { Github, ExternalLink, Play, Code, Workflow, Globe } from "lucide-react"
 const Projects = () => {
   const projects = [
     {
+      title: "Training Solutions - Fitness Platform (In Development)",
+      description: "Comprehensive fitness training platform connecting trainers, employers, and facilities with multi-role authentication, job management, booking, dashboards, Google Maps, and automated invoicing.",
+      category: "SaaS / HealthTech",
+      icon: Globe,
+      technologies: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "shadcn", "Google Maps API"],
+      highlights: [
+        "Multi-role authentication system (Supabase Auth, PostgreSQL)",
+        "Job posting, applications, real-time notifications, automated status tracking",
+        "Booking system with session scheduling, invoice generation, review management",
+        "Role-based dashboards with real-time analytics and Row Level Security policies"
+      ],
+      isHighlighted: true,
+      links: {
+        demo: null,
+        github: null
+      }
+    },
+    {
       title: "Patronum - Google Workspace Automation",
       description: "Enterprise automation suite for Google Workspace that streamlines business processes and improves productivity for thousands of users worldwide.",
       category: "Enterprise Software",
@@ -19,26 +37,40 @@ const Projects = () => {
       ],
       isWorkProject: true,
       links: {
-        demo: "https://patronum.io",
+        demo: null,
         github: null
       }
     },
     {
-      title: "Delhi Devs",
-      description: "A thriving tech community platform connecting developers, fostering collaboration, and driving innovation in Delhi's tech ecosystem.",
-      category: "Community",
-      icon: Globe,
-      technologies: ["Community Building", "Event Management", "Networking", "Mentorship"],
+      title: "COVID-Text-Extractor",
+      description: "Automated tool to extract contact information from images and PDFs for COVID-19 crisis response. Used Computer Vision (OpenCV), OCR, RegEx, and scam-checking API.",
+      category: "Open Source / Data Processing",
+      icon: Code,
+      technologies: ["Python", "OpenCV", "Pillow", "RegEx", "REST APIs"],
       highlights: [
-        "Growing developer community in Delhi",
-        "Regular tech events and meetups",
-        "Knowledge sharing platform",
-        "Career growth and networking opportunities"
+        "92% OCR accuracy, flexible for Telegram and Twitter bots",
+        "Critical data processing for COVID-19 response"
       ],
-      isHighlighted: true,
+      isHighlighted: false,
       links: {
-        demo: "https://delhidevs.com",
-        github: null
+        demo: null,
+        github: "https://github.com/gagangulyani/covid-text-extractor"
+      }
+    },
+    {
+      title: "Atypical - Stock Image Platform",
+      description: "Responsive stock photo platform with social features, image uploads, real-time commenting, and AI-powered search.",
+      category: "Web App / Community",
+      icon: Code,
+      technologies: ["Python", "Flask", "MongoDB", "JavaScript", "jQuery", "Bootstrap", "REST APIs"],
+      highlights: [
+        "Integrated social features for artists and community feedback",
+        "Advanced search with AI-powered tagging (60% improvement in discovery)"
+      ],
+      isHighlighted: false,
+      links: {
+        demo: null,
+        github: "https://github.com/gagangulyani/atypical"
       }
     }
   ];

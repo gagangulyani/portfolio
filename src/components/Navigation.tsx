@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Menu, X, Code, Github, Linkedin, User, LogOut } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import { supabase } from "@/integrations/supabase/client";
+  // import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -20,21 +20,21 @@ const Navigation = () => {
     };
 
     // Auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setUser(session?.user ?? null);
-      }
-    );
+    // const { data: { subscription } } = supabase.auth.onAuthStateChange(
+    //   (event, session) => {
+    //     setUser(session?.user ?? null);
+    //   }
+    // );
 
     // Check current session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
+      // supabase.auth.getSession().then(({ data: { session } }) => {
+      //   setUser(session?.user ?? null);
+      // });
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      subscription.unsubscribe();
+        // subscription.unsubscribe();
     };
   }, []);
 
@@ -58,21 +58,21 @@ const Navigation = () => {
     }
   };
 
-  const handleSignOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      toast({
-        title: "Error",
-        description: "Failed to sign out",
-        variant: "destructive",
-      });
-    } else {
-      toast({
-        title: "Signed out successfully",
-        description: "See you later!",
-      });
-    }
-  };
+    // const handleSignOut = async () => {
+    //   const { error } = await supabase.auth.signOut();
+    //   if (error) {
+    //     toast({
+    //       title: "Error",
+    //       description: "Failed to sign out",
+    //       variant: "destructive",
+    //     });
+    //   } else {
+    //     toast({
+    //       title: "Signed out successfully",
+    //       description: "See you later!",
+    //     });
+    //   }
+    // };
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -115,36 +115,7 @@ const Navigation = () => {
               <Linkedin className="w-4 h-4" />
             </Button>
             
-            {user ? (
-              <div className="flex items-center gap-2">
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  onClick={() => navigate("/dashboard")}
-                >
-                  <User className="w-4 h-4 mr-2" />
-                  Dashboard
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  onClick={handleSignOut}
-                  className="border-primary/50 hover:bg-primary/10"
-                >
-                  <LogOut className="w-4 h-4 mr-2" />
-                  Sign Out
-                </Button>
-              </div>
-            ) : (
-              <Button 
-                size="sm" 
-                className="bg-primary hover:bg-primary/90"
-                onClick={() => navigate("/auth")}
-              >
-                <User className="w-4 h-4 mr-2" />
-                Sign In
-              </Button>
-            )}
+            {/* Auth UI removed: Dashboard/Sign In/Sign Out buttons hidden */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -183,37 +154,7 @@ const Navigation = () => {
                   </Button>
                 </div>
                 
-                {user ? (
-                  <div className="space-y-2">
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="w-full justify-start"
-                      onClick={() => navigate("/dashboard")}
-                    >
-                      <User className="w-4 h-4 mr-2" />
-                      Dashboard
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="w-full border-primary/50"
-                      onClick={handleSignOut}
-                    >
-                      <LogOut className="w-4 h-4 mr-2" />
-                      Sign Out
-                    </Button>
-                  </div>
-                ) : (
-                  <Button 
-                    size="sm" 
-                    className="w-full bg-primary hover:bg-primary/90"
-                    onClick={() => navigate("/auth")}
-                  >
-                    <User className="w-4 h-4 mr-2" />
-                    Sign In
-                  </Button>
-                )}
+                {/* Auth UI removed: Dashboard/Sign In/Sign Out buttons hidden */}
               </div>
             </div>
           </div>

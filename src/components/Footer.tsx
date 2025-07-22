@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Code, Github, Linkedin, Mail, Music, ArrowUp } from "lucide-react";
+import { Heart, Code, Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,8 +16,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, href: "https://github.com/gagangulyani", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com/in/gagan-gulyani", label: "LinkedIn" },
-    { icon: Music, href: "#", label: "Music Portfolio" },
-    { icon: Mail, href: "mailto:gagan@example.com", label: "Email" },
+    { icon: Mail, href: "mailto:gagangulyanig@gmail.com", label: "Email" },
   ];
 
   const handleScrollToTop = () => {
@@ -46,13 +45,12 @@ const Footer = () => {
             </div>
             
             <p className="text-muted-foreground leading-relaxed max-w-md">
-              Full Stack Developer, Community Builder, and Music Producer. 
+              Full Stack Developer & Community Builder. 
               Crafting digital experiences and building communities that matter.
             </p>
             
             <div className="flex flex-wrap gap-2">
               <Badge variant="secondary">Full Stack Developer</Badge>
-              <Badge variant="secondary">Music Producer</Badge>
               <Badge variant="secondary">Community Builder</Badge>
             </div>
             
