@@ -65,15 +65,6 @@ const Blog = () => {
       slug: "building-tech-communities"
     },
     {
-      title: "The Intersection of Music and Technology",
-      excerpt: "How my background in music production has influenced my approach to software development and creative problem-solving.",
-      category: "Personal",
-      date: "2023-12-28",
-      readTime: "4 min read",
-      tags: ["Music", "Technology", "Creativity"],
-      slug: "music-technology-intersection"
-    },
-    {
       title: "Google Workspace Automation: Patronum Deep Dive",
       excerpt: "Technical insights into building enterprise automation tools for Google Workspace and the challenges we solved.",
       category: "Enterprise",
