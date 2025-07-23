@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -50,10 +51,11 @@ const Hero = () => {
         <div className={`w-full flex justify-center mb-6 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <div className="relative">
             <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
-              <img
+              <Image
                 src={"/assets/gagan-profile.jpg"}
                 alt="Gagan Deep Singh"
-                className="w-full h-full object-cover"
+                layout="fill"
+                objectFit="cover"
                 draggable={false}
               />
             </div>

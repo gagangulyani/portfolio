@@ -50,10 +50,10 @@ const Contact = () => {
             Get In Touch
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Let's Work <span className="gradient-text">Together</span>
+            Let&apos;s Work <span className="gradient-text">Together</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? Let's create something exceptional together.
+            Have a project in mind? Let&apos;s create something exceptional together.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ const Contact = () => {
                 {/* Left Column - Contact Info */}
                 <div className="md:col-span-5 space-y-8">
                   <div>
-                    <h3 className="text-2xl font-bold mb-6 gradient-text">Let's Connect</h3>
+                    <h3 className="text-2xl font-bold mb-6 gradient-text">Let&apos;s Connect</h3>
                     <div className="space-y-6">
                       {contactInfo.map((info, index) => (
                         <Link

@@ -5,6 +5,18 @@ import { Badge } from '@/components/ui/badge';
 import { Linkedin, RefreshCw, User, Building } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
+interface ExperienceItem {
+  id: number;
+  title: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate: string | null;
+  current: boolean;
+  description: string;
+  skills: string[];
+}
+
 // Dummy LinkedIn data - In production, you would integrate with LinkedIn API
 const dummyLinkedInData = {
   profile: {
@@ -52,7 +64,7 @@ const dummyLinkedInData = {
 };
 
 interface LinkedInSyncProps {
-  onExperienceUpdate?: (experience: any[]) => void;
+  onExperienceUpdate?: (experience: ExperienceItem[]) => void;
 }
 
 const LinkedInSync = ({ onExperienceUpdate }: LinkedInSyncProps) => {
