@@ -1,40 +1,26 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Menu, X, Code, Github, Linkedin, User, LogOut } from "lucide-react";
+import { Menu, X, Code, Github, Linkedin } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-  // import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-    // const [user, setUser] = useState(null);
-  const navigate = useNavigate();
-  const { toast } = useToast();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    // Auth state listener
-    // const { data: { subscription } } = supabase.auth.onAuthStateChange(
-    //   (event, session) => {
-    //     setUser(session?.user ?? null);
-    //   }
-    // );
-
-    // Check current session
-      // supabase.auth.getSession().then(({ data: { session } }) => {
-      //   setUser(session?.user ?? null);
-      // });
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-        // subscription.unsubscribe();
     };
   }, []);
 
@@ -42,14 +28,13 @@ const Navigation = () => {
     { label: "About", href: "#about", type: "scroll" },
     { label: "Experience", href: "#experience", type: "scroll" },
     { label: "Projects", href: "#projects", type: "scroll" },
-    { label: "Blog", href: "#blog", type: "scroll" },
     { label: "Contact", href: "#contact", type: "scroll" },
   ];
 
   const handleNavClick = (href: string, type: string) => {
     setIsOpen(false);
     if (type === "navigate") {
-      navigate(href);
+      router.push(href);
     } else {
       const element = document.querySelector(href);
       if (element) {
@@ -57,22 +42,6 @@ const Navigation = () => {
       }
     }
   };
-
-    // const handleSignOut = async () => {
-    //   const { error } = await supabase.auth.signOut();
-    //   if (error) {
-    //     toast({
-    //       title: "Error",
-    //       description: "Failed to sign out",
-    //       variant: "destructive",
-    //     });
-    //   } else {
-    //     toast({
-    //       title: "Signed out successfully",
-    //       description: "See you later!",
-    //     });
-    //   }
-    // };
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -108,14 +77,16 @@ const Navigation = () => {
           {/* Social Links & CTA */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
-              <Github className="w-4 h-4" />
+            <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors" asChild>
+              <Link href="https://github.com/gagangulyani" target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4" />
+              </Link>
             </Button>
-            <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
-              <Linkedin className="w-4 h-4" />
+            <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors" asChild>
+              <Link href="https://linkedin.com/in/gagan-gulyani" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-4 h-4" />
+              </Link>
             </Button>
-            
-            {/* Auth UI removed: Dashboard/Sign In/Sign Out buttons hidden */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -147,14 +118,16 @@ const Navigation = () => {
                 <div className="flex items-center gap-3 mb-4">
                   <ThemeToggle />
                   <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
-                    <Github className="w-4 h-4" />
+                    <Link href="https://github.com/gagangulyani" target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4" />
+                    </Link>
                   </Button>
                   <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
-                    <Linkedin className="w-4 h-4" />
+                    <Link href="https://linkedin.com/in/gagan-gulyani" target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="w-4 h-4" />
+                    </Link>
                   </Button>
                 </div>
-                
-                {/* Auth UI removed: Dashboard/Sign In/Sign Out buttons hidden */}
               </div>
             </div>
           </div>

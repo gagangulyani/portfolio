@@ -1,3 +1,4 @@
+"use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,9 +11,9 @@ const Projects = () => {
       description: "Comprehensive fitness training platform connecting trainers, employers, and facilities with multi-role authentication, job management, booking, dashboards, Google Maps, and automated invoicing.",
       category: "SaaS / HealthTech",
       icon: Globe,
-      technologies: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "shadcn", "Google Maps API"],
+      technologies: ["Next.js", "React", "TypeScript", "PostgreSQL", "Tailwind CSS", "shadcn", "Google Maps API"],
       highlights: [
-        "Multi-role authentication system (Supabase Auth, PostgreSQL)",
+        "Multi-role authentication system (PostgreSQL)",
         "Job posting, applications, real-time notifications, automated status tracking",
         "Booking system with session scheduling, invoice generation, review management",
         "Role-based dashboards with real-time analytics and Row Level Security policies"
@@ -144,7 +145,7 @@ const Projects = () => {
                     <Button 
                       size="sm" 
                       className={`${project.isHighlighted ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300' : ''} ${project.links.github ? 'flex-1' : 'w-full'}`}
-                      onClick={() => window.open(project.links.demo, '_blank')}
+                      onClick={() => project.links.demo && window.open(project.links.demo, '_blank')}
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       {project.isHighlighted ? 'Visit Delhi Devs' : 'Live Demo'}
@@ -155,7 +156,7 @@ const Projects = () => {
                       variant="outline" 
                       size="sm" 
                       className="flex-1"
-                      onClick={() => window.open(project.links.github, '_blank')}
+                      onClick={() => project.links.github && window.open(project.links.github, '_blank')}
                     >
                       <Github className="w-4 h-4 mr-2" />
                       Source

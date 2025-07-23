@@ -7,7 +7,7 @@ const ProfessionalJourney = () => {
       title: "Freelance (July 2025 – Present) – Full Stack Developer, Remote",
       description:
         "Developed a comprehensive fitness training platform connecting trainers, employers, and facilities with multi-role authentication and real-time notifications. Implemented job posting, booking management, dashboards, Google Maps integration, and automated invoice generation. Built RESTful APIs for jobs, applications, bookings, venues, and user management with role-based access control. Used Generative AI tools like Lovable.dev and Cursor.ai for rapid development.",
-      tech: "Technologies: Next.js, React, TypeScript, Supabase, PostgreSQL, Tailwind CSS, shadcn, Google Maps API",
+      tech: "Technologies: Next.js, React, TypeScript, PostgreSQL, Tailwind CSS, shadcn, Google Maps API",
     },
     {
       title: "Pulse Business Solutions Inc (pulsepro.ai) (Sep 2024 – Jun 2025) – Full Stack Developer, Noida, India (Hybrid)",

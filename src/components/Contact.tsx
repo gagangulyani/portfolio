@@ -1,41 +1,30 @@
-import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+"use client";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Coffee } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, MapPin, Phone, Github, Linkedin, Coffee } from "lucide-react";
+import Link from "next/link";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
       value: "gagangulyanig@gmail.com",
-      href: "mailto:gagangulyanig@gmail.com"
+      href: "mailto:gagangulyanig@gmail.com",
     },
     {
       icon: MapPin,
       label: "Location",
       value: "Saharanpur, Uttar Pradesh, India",
-      href: "#"
+      href: "#",
     },
     {
       icon: Phone,
       label: "Available",
       value: "Mon - Fri, 9AM - 6PM IST",
-      href: "#"
-    }
+      href: "#",
+    },
   ];
 
   const socialLinks = [
@@ -43,37 +32,15 @@ const Contact = () => {
       icon: Github,
       label: "GitHub",
       href: "https://github.com/gagangulyani",
-      color: "hover:text-foreground"
+      color: "hover:text-foreground",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       href: "https://linkedin.com/in/gagan-gulyani",
-      color: "hover:text-blue-500"
+      color: "hover:text-blue-500",
     },
-    // Buy me a coffee button hidden
   ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon!",
-    });
-
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
-  };
 
   return (
     <section id="contact" className="py-20 bg-gradient-secondary relative overflow-hidden">
@@ -100,7 +67,7 @@ const Contact = () => {
                     <h3 className="text-2xl font-bold mb-6 gradient-text">Let's Connect</h3>
                     <div className="space-y-6">
                       {contactInfo.map((info, index) => (
-                        <a
+                        <Link
                           key={index}
                           href={info.href}
                           className="group flex items-center gap-4 p-3 rounded-lg hover:bg-primary/5 transition-all duration-300"
@@ -112,7 +79,7 @@ const Contact = () => {
                             <div className="font-medium text-sm text-muted-foreground">{info.label}</div>
                             <div className="font-semibold">{info.value}</div>
                           </div>
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -121,7 +88,7 @@ const Contact = () => {
                     <h4 className="text-lg font-semibold mb-4">Find Me On</h4>
                     <div className="flex gap-4">
                       {socialLinks.map((link, index) => (
-                        <a
+                        <Link
                           key={index}
                           href={link.href}
                           target="_blank"
@@ -129,7 +96,7 @@ const Contact = () => {
                           className={`p-3 bg-primary/5 rounded-lg hover:bg-primary/10 transition-all duration-300 ${link.color}`}
                         >
                           <link.icon className="w-5 h-5" />
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -149,8 +116,8 @@ const Contact = () => {
                   <div>
                     <h3 className="text-2xl font-bold mb-6 gradient-text">Quick Response</h3>
                     <p className="text-muted-foreground mb-6">
-                      For urgent inquiries or exciting opportunities, reach out directly.
-                      I typically respond within a few hours during business days.
+                      For urgent inquiries or exciting opportunities, reach out directly. I typically respond within a few
+                      hours during business days.
                     </p>
                     <div className="flex flex-wrap gap-4">
                       <Button className="flex-1" size="lg">
@@ -168,8 +135,8 @@ const Contact = () => {
                     <CardContent className="p-6">
                       <h4 className="font-bold mb-3">Currently Working On</h4>
                       <p className="text-muted-foreground text-sm">
-                        Full Stack Development projects focusing on AI integration, real-time features,
-                        and scalable architecture.
+                        Full Stack Development projects focusing on AI integration, real-time features, and scalable
+                        architecture.
                       </p>
                     </CardContent>
                   </Card>

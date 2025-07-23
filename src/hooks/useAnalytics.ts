@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-// import { supabase } from '@/integrations/supabase/client';
 
 export const useAnalytics = () => {
   useEffect(() => {
@@ -24,7 +23,6 @@ export const useAnalytics = () => {
         }
 
         // Track the page view
-        // supabase analytics disabled
         console.log('Analytics tracking disabled');
       } catch (error) {
         // No analytics error handling needed
