@@ -12,12 +12,8 @@ export const useAnalytics = () => {
         }
 
         // Get basic location info (simplified)
-        let locationData = { country: 'Unknown', city: 'Unknown' };
         try {
-          const response = await fetch('https://ipapi.co/json/');
-          if (response.ok) {
-            locationData = await response.json();
-          }
+          await fetch('https://ipapi.co/json/');
         } catch (error) {
           console.log('Location fetch failed, using defaults');
         }

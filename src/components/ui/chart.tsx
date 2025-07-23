@@ -87,7 +87,12 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
                     itemConfig.color
                   return color ? `  --color-${key}: ${color};` : null
                 })
-                .join("")}}`).join(""),
+                .join("
+")}
+}`
+          )
+          .join("
+"),
       }}
     />
   )

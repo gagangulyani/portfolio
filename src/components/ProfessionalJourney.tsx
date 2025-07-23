@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const ProfessionalJourney = () => {
@@ -50,7 +50,7 @@ const ProfessionalJourney = () => {
           <Card className="bg-card/70 border-primary/10 shadow-lg">
             <CardContent className="pt-6">
               <div className="relative border-l-2 border-primary/30 pl-6 space-y-12">
-                {experiences.map((exp, idx) => (
+                {experiences.map((exp) => (
                   <div key={exp.title} className="relative group">
                     {/* Timeline dot with pulse effect */}
                     <div className="absolute w-4 h-4 bg-primary rounded-full -left-[1.85rem] border-4 border-background group-hover:ring-4 ring-primary/20 transition-all" />

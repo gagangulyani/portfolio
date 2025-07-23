@@ -1,8 +1,8 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Play, Code, Workflow, Globe } from "lucide-react";
+import { Github, ExternalLink, Code, Workflow, Globe } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Projects = () => {
   const projects = [
@@ -142,7 +142,7 @@ const Projects = () => {
                 
                 <div className="flex gap-3 pt-4">
                   {project.links.demo && (
-                    <Button 
+                    <Button
                       size="sm" 
                       className={`${project.isHighlighted ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300' : ''} ${project.links.github ? 'flex-1' : 'w-full'}`}
                       onClick={() => project.links.demo && window.open(project.links.demo, '_blank')}

@@ -139,7 +139,7 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, "id">
 
-function toast({ ...props }: Toast) {
+function toast({ action, ...props }: Toast) {
   const id = genId()
 
   const update = (props: ToasterToast) =>
@@ -155,6 +155,7 @@ function toast({ ...props }: Toast) {
       ...props,
       id,
       open: true,
+      action: action as ToastActionElement, // Explicitly cast action
       onOpenChange: (open) => {
         if (!open) dismiss()
       },
@@ -179,7 +180,7 @@ function useToast() {
         listeners.splice(index, 1)
       }
     }
-  }, [state])
+  }, [])
 
   return {
     ...state,
