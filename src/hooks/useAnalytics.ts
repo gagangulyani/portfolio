@@ -14,13 +14,13 @@ export const useAnalytics = () => {
         // Get basic location info (simplified)
         try {
           await fetch('https://ipapi.co/json/');
-        } catch (error) {
+        } catch {
           console.log('Location fetch failed, using defaults');
         }
 
         // Track the page view
         console.log('Analytics tracking disabled');
-      } catch (error) {
+      } catch {
         // No analytics error handling needed
       }
     };
