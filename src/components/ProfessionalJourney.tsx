@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const ProfessionalJourney = () => {
@@ -7,7 +7,7 @@ const ProfessionalJourney = () => {
       title: "Freelance (July 2025 – Present) – Full Stack Developer, Remote",
       description:
         "Developed a comprehensive fitness training platform connecting trainers, employers, and facilities with multi-role authentication and real-time notifications. Implemented job posting, booking management, dashboards, Google Maps integration, and automated invoice generation. Built RESTful APIs for jobs, applications, bookings, venues, and user management with role-based access control. Used Generative AI tools like Lovable.dev and Cursor.ai for rapid development.",
-      tech: "Technologies: Next.js, React, TypeScript, Supabase, PostgreSQL, Tailwind CSS, shadcn, Google Maps API",
+      tech: "Technologies: Next.js, React, TypeScript, PostgreSQL, Tailwind CSS, shadcn, Google Maps API",
     },
     {
       title: "Pulse Business Solutions Inc (pulsepro.ai) (Sep 2024 – Jun 2025) – Full Stack Developer, Noida, India (Hybrid)",
@@ -50,7 +50,7 @@ const ProfessionalJourney = () => {
           <Card className="bg-card/70 border-primary/10 shadow-lg">
             <CardContent className="pt-6">
               <div className="relative border-l-2 border-primary/30 pl-6 space-y-12">
-                {experiences.map((exp, idx) => (
+                {experiences.map((exp) => (
                   <div key={exp.title} className="relative group">
                     {/* Timeline dot with pulse effect */}
                     <div className="absolute w-4 h-4 bg-primary rounded-full -left-[1.85rem] border-4 border-background group-hover:ring-4 ring-primary/20 transition-all" />

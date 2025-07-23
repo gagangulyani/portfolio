@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-// import { supabase } from '@/integrations/supabase/client';
 
 export const useAnalytics = () => {
   useEffect(() => {
@@ -13,20 +12,15 @@ export const useAnalytics = () => {
         }
 
         // Get basic location info (simplified)
-        let locationData = { country: 'Unknown', city: 'Unknown' };
         try {
-          const response = await fetch('https://ipapi.co/json/');
-          if (response.ok) {
-            locationData = await response.json();
-          }
-        } catch (error) {
+          await fetch('https://ipapi.co/json/');
+        } catch {
           console.log('Location fetch failed, using defaults');
         }
 
         // Track the page view
-        // supabase analytics disabled
         console.log('Analytics tracking disabled');
-      } catch (error) {
+      } catch {
         // No analytics error handling needed
       }
     };

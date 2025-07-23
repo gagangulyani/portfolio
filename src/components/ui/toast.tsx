@@ -23,7 +23,7 @@ const ToastViewport = React.forwardRef<
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName
 
 const toastVariants = cva(
-  "group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-6 pr-8 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out-80 data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full data-[state=open]:sm:slide-in-from-bottom-full",
+  "group grid items-center gap-1.5 overflow-hidden rounded-md p-4 pr-6 shadow-lg transition-all data-[swipe=cancel]:translate-x-0 data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)] data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=move]:transition-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[swipe=end]:animate-out data-[state=closed]:fade-out data-[state=open]:fade-in data-[state=closed]:slide-out-to-right-full data-[state=open]:slide-in-from-top-full sm:data-[state=closed]:slide-out-to-bottom-full sm:data-[state=open]:slide-in-from-bottom-full",
   {
     variants: {
       variant: {
@@ -110,18 +110,23 @@ const ToastDescription = React.forwardRef<
 ))
 ToastDescription.displayName = ToastPrimitives.Description.displayName
 
+type ToastActionElement = React.ElementRef<typeof ToastAction>
+
 type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
 
-type ToastActionElement = React.ReactElement<typeof ToastAction>
+type ToasterProps = {
+  toasts: ToastProps[]
+}
 
 export {
   type ToastProps,
   type ToastActionElement,
+  type ToasterProps,
   ToastProvider,
   ToastViewport,
   Toast,
   ToastTitle,
   ToastDescription,
-  ToastClose,
   ToastAction,
+  ToastClose,
 }
