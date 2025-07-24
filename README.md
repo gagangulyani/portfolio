@@ -1,18 +1,10 @@
-# Welcome to your Lovable project
+# Gagan Deep Singh's Portfolio
 
-## Project info
+A modern, responsive portfolio website built with React, TypeScript, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/832ad616-0bac-4b98-b1cc-487ce7274b55
+## Overview
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/832ad616-0bac-4b98-b1cc-487ce7274b55) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+This portfolio showcases my professional experience, projects, and skills as a Full Stack Developer. The site features a clean, modern design with dark mode support and smooth animations.
 
 **Use your preferred IDE**
 
@@ -60,14 +52,14 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/832ad616-0bac-4b98-b1cc-487ce7274b55) and click on Share -> Publish.
+This project can be deployed to any static hosting service like Vercel, Netlify, or GitHub Pages.
 
-## Can I connect a custom domain to my Lovable project?
+To build the project for production:
 
-Yes, you can!
+```sh
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The build output will be in the `dist` directory, ready for deployment.

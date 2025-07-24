@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Menu, X, Code, Github, Linkedin, User, LogOut } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { CalendlyButton } from "@/components/ui/calendly";
   // import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -40,9 +41,8 @@ const Navigation = () => {
 
   const navigationItems = [
     { label: "About", href: "#about", type: "scroll" },
-    { label: "Experience", href: "#experience", type: "scroll" },
+    { label: "Experience", href: "#journey", type: "scroll" },
     { label: "Projects", href: "#projects", type: "scroll" },
-    { label: "Blog", href: "#blog", type: "scroll" },
     { label: "Contact", href: "#contact", type: "scroll" },
   ];
 
@@ -107,15 +107,36 @@ const Navigation = () => {
 
           {/* Social Links & CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <CalendlyButton />
             <ThemeToggle />
-            <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
-              <Github className="w-4 h-4" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:bg-primary/20 transition-colors"
+              asChild
+            >
+              <a
+                href="https://github.com/gagangulyani"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="w-4 h-4" />
+              </a>
             </Button>
-            <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
-              <Linkedin className="w-4 h-4" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:bg-primary/20 transition-colors"
+              asChild
+            >
+              <a
+                href="https://linkedin.com/in/gagan-gulyani"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
             </Button>
-            
-            {/* Auth UI removed: Dashboard/Sign In/Sign Out buttons hidden */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -144,14 +165,39 @@ const Navigation = () => {
               ))}
               
               <div className="pt-4 border-t border-border/50">
-                <div className="flex items-center gap-3 mb-4">
-                  <ThemeToggle />
-                  <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
-                    <Github className="w-4 h-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="hover:bg-primary/20 transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                  </Button>
+                <div className="flex flex-col gap-4 mb-4">
+                  <CalendlyButton />
+                  <div className="flex items-center gap-3">
+                    <ThemeToggle />
+                    <Button 
+                      variant="ghost" 
+                      size="icon" 
+                      className="hover:bg-primary/20 transition-colors"
+                      asChild
+                    >
+                      <a
+                        href="https://github.com/gagangulyani"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    </Button>
+                    <Button 
+                      variant="ghost" 
+                      size="icon" 
+                      className="hover:bg-primary/20 transition-colors"
+                      asChild
+                    >
+                      <a
+                        href="https://linkedin.com/in/gagan-gulyani"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Linkedin className="w-4 h-4" />
+                      </a>
+                    </Button>
+                  </div>
                 </div>
                 
                 {/* Auth UI removed: Dashboard/Sign In/Sign Out buttons hidden */}
