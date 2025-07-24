@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Mail, MapPin, Phone, Send, Github, Linkedin, Coffee } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { CalendlyButton } from "@/components/ui/calendly";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,8 @@ const Contact = () => {
       icon: Phone,
       label: "Available",
       value: "Mon - Fri, 9AM - 6PM IST",
-      href: "#"
+      href: "#",
+      component: CalendlyButton
     }
   ];
 
@@ -157,10 +159,7 @@ const Contact = () => {
                         <Mail className="w-4 h-4 mr-2" />
                         Send Email
                       </Button>
-                      <Button variant="outline" className="flex-1" size="lg">
-                        <Phone className="w-4 h-4 mr-2" />
-                        Schedule Call
-                      </Button>
+                      <CalendlyButton />
                     </div>
                   </div>
 

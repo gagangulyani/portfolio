@@ -1,1 +1,0 @@
-// Supabase fully disabled for now. No client exported.
