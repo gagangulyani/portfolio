@@ -1,11 +1,18 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Users, Briefcase } from "lucide-react";
+import { Code2, Briefcase, LaptopMinimalCheck } from "lucide-react";
 
 const About = () => {
   const stats = [
     { icon: Code2, label: "Years Experience", value: "3+" },
-    { icon: Users, label: "LinkedIn Connections", value: "3500+" },
+  // Hide the exact LinkedIn connections number for privacy, show Stealth Project (Freelance) instead
+    { icon: LaptopMinimalCheck, label: "Professional", value: "Vibe Coder" },
     { icon: Briefcase, label: "Projects Completed", value: "50+" },
   ];
 
@@ -37,20 +44,28 @@ const About = () => {
             Building Digital <span className="gradient-text">Solutions</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Full Stack Developer with 3+ years of experience crafting scalable web applications 
-            and optimizing system performance. Proven track record of implementing 120+ features 
-            and resolving 170+ critical bugs.
+            Full Stack Developer with 3+ years of experience crafting scalable
+            web applications and optimizing system performance. Proven track
+            record of implementing 120+ features and resolving 170+ critical
+            bugs.
           </p>
         </div>
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {stats.map((stat) => (
-            <Card key={stat.label} className="bg-card/70 border-primary/10 shadow-lg transform hover:scale-105 transition-transform">
+            <Card
+              key={stat.label}
+              className="bg-card/70 border-primary/10 shadow-lg transform hover:scale-105 transition-transform"
+            >
               <CardContent className="flex flex-col items-center justify-center py-6">
                 <stat.icon className="w-10 h-10 text-primary mb-3" />
-                <div className="text-3xl font-bold gradient-text mb-1">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-3xl font-bold gradient-text mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {stat.label}
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -60,8 +75,12 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <Card className="bg-card/70 border-primary/10 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold gradient-text text-center">Skills & Technologies</CardTitle>
-              <CardDescription className="text-center">Core technologies I work with</CardDescription>
+              <CardTitle className="text-2xl font-bold gradient-text text-center">
+                Skills & Technologies
+              </CardTitle>
+              <CardDescription className="text-center">
+                Core technologies I work with
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap justify-center gap-3">

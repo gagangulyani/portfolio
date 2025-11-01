@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Code, Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Heart, Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,20 +38,15 @@ const Footer = () => {
           {/* Brand & Description */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Code className="w-6 h-6 text-primary" />
+                <span className="text-2xl font-bold gradient-text">Gagan Deep Singh</span>
               </div>
-              <span className="text-2xl font-bold gradient-text">Gagan Deep Singh</span>
-            </div>
             
             <p className="text-muted-foreground leading-relaxed max-w-md">
-              Full Stack Developer & Community Builder. 
-              Crafting digital experiences and building communities that matter.
+              Full Stack Developer. Crafting digital experiences that matter.
             </p>
             
             <div className="flex flex-wrap gap-2">
               <Badge variant="secondary">Full Stack Developer</Badge>
-              <Badge variant="secondary">Community Builder</Badge>
             </div>
             
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -113,7 +108,7 @@ const Footer = () => {
             </div>
             
             <div className="flex items-center gap-6">
-              <span>Available for new opportunities</span>
+              <span>Open to new opportunities</span>
               <Badge variant="default" className="animate-pulse">
                 Open to Work
               </Badge>

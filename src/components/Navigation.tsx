@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Menu, X, Code, Github, Linkedin, User, LogOut } from "lucide-react";
+import { Menu, X, Github, Linkedin, User, LogOut } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { CalendlyButton } from "@/components/ui/calendly";
   // import { supabase } from "@/integrations/supabase/client";
@@ -83,13 +83,11 @@ const Navigation = () => {
           
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="p-2 bg-primary/10 rounded-lg">
-              <Code className="w-6 h-6 text-primary" />
-            </div>
-            <span className="text-xl font-bold text-primary">Gagan Deep</span>
-            <Badge variant="secondary" className="hidden md:block text-xs">
-              Available
-            </Badge>
+            <span className={`text-xl font-bold text-primary transition-opacity duration-300 ${
+              isScrolled ? 'opacity-100' : 'opacity-0 md:opacity-100'
+            }`}>
+              Gagan Deep Singh
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -143,7 +141,9 @@ const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className={`md:hidden transition-opacity duration-300 ${
+              isScrolled ? 'opacity-100' : 'opacity-0'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
