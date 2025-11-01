@@ -3,12 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CalendlyButton } from "@/components/ui/calendly";
 import { useTheme } from "@/components/ThemeProvider";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Download,
-} from "lucide-react";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
 import heroBackgroundLight from "@/assets/hero-bg-light.jpg";
 import gaganProfile from "/profile-pic.png";
@@ -21,7 +16,7 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
-  const roles = ["Full Stack Developer", "Community Builder", "Tech Leader"];
+  const roles = ["Vibe Coder", "Full Stack Developer", "Tech Leader"];
   const [currentRole, setCurrentRole] = useState(0);
 
   useEffect(() => {
@@ -36,7 +31,9 @@ const Hero = () => {
     <section
       className="min-h-screen flex flex-col items-center justify-center relative"
       style={{
-        backgroundImage: `url(${theme === "light" ? heroBackgroundLight : heroBackground})`,
+        backgroundImage: `url(${
+          theme === "light" ? heroBackgroundLight : heroBackground
+        })`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -52,10 +49,10 @@ const Hero = () => {
           }`}
         >
           <Badge variant="secondary" className="mb-4 px-4 py-2 text-sm">
-            Available for Work
+            For Work
           </Badge>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 leading-tight">
-            Gagan Deep
+            Gagan Deep Singh
           </h1>
           <div className="mb-2">
             <span className="text-primary font-semibold text-lg sm:text-2xl">
@@ -85,27 +82,12 @@ const Hero = () => {
         {/* Description & Actions */}
         <div className="w-full text-center max-w-2xl mb-6">
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Turning coffee into code and dreams into digital reality.
-            Where pixel-perfect meets performance-obsessed.
-            Creating web experiences that make both users smile and developers nod in approval.
+            Turning coffee into code and dreams into digital reality. Where
+            pixel-perfect meets performance-obsessed. Creating web experiences
+            that make both users smile and developers nod in approval.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <CalendlyButton />
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-primary/50 hover:bg-primary/10 hover:text-primary transition-colors"
-              asChild
-            >
-              <a
-                href="/Gagan-Resume-SWE.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download className="w-5 h-5 mr-2" />
-                Download Resume
-              </a>
-            </Button>
           </div>
         </div>
 

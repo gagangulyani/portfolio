@@ -33,7 +33,7 @@ const Contact = () => {
     },
     {
       icon: Phone,
-      label: "Available",
+      label: "Hours",
       value: "Mon - Fri, 9AM - 6PM IST",
       href: "#",
       component: CalendlyButton
@@ -78,104 +78,101 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-secondary relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+    <section id="contact" className="py-16 md:py-20 bg-gradient-secondary relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 md:mb-16">
           <Badge variant="outline" className="mb-4 px-4 py-2">
             Get In Touch
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Let's Work <span className="gradient-text">Together</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
+            Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind? Let's create something exceptional together.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+            Got a project in mind? Let's create something amazing together.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <Card className="bg-card/80 backdrop-blur-sm border-primary/10 shadow-xl">
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                {/* Left Column - Contact Info */}
-                <div className="md:col-span-5 space-y-8">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-6 gradient-text">Let's Connect</h3>
-                    <div className="space-y-6">
-                      {contactInfo.map((info, index) => (
-                        <a
-                          key={index}
-                          href={info.href}
-                          className="group flex items-center gap-4 p-3 rounded-lg hover:bg-primary/5 transition-all duration-300"
-                        >
-                          <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                            <info.icon className="w-5 h-5 text-primary" />
-                          </div>
-                          <div>
-                            <div className="font-medium text-sm text-muted-foreground">{info.label}</div>
-                            <div className="font-semibold">{info.value}</div>
-                          </div>
-                        </a>
-                      ))}
+        <div className="max-w-4xl mx-auto">
+          {/* Contact Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {contactInfo.map((info, index) => (
+              <a
+                key={index}
+                href={info.href}
+                className="group block"
+              >
+                <Card className="bg-card/50 backdrop-blur-sm border-primary/10 hover:bg-card/80 hover:border-primary/30 transition-all duration-300 h-full cursor-pointer">
+                  <CardContent className="p-6 flex flex-col items-center text-center">
+                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors mb-4">
+                      <info.icon className="w-6 h-6 text-primary" />
                     </div>
-                  </div>
+                    <div className="font-medium text-xs sm:text-sm text-muted-foreground mb-2">{info.label}</div>
+                    <div className="font-semibold text-sm sm:text-base line-clamp-2">{info.value}</div>
+                  </CardContent>
+                </Card>
+              </a>
+            ))}
+          </div>
 
+          {/* Social Links */}
+          <div className="flex justify-center gap-3 mb-8">
+            {socialLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-3 bg-primary/5 rounded-lg hover:bg-primary/15 transition-all duration-300 ${link.color}`}
+                aria-label={link.label}
+              >
+                <link.icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8">
+            <Button size="lg" className="w-full sm:w-auto" asChild>
+              <a href="mailto:gagangulyanig@gmail.com">
+                <Mail className="w-4 h-4 mr-2" />
+                Send Email
+              </a>
+            </Button>
+
+            {/* Make Calendly CTA expand like the Send Email button (full width on mobile) */}
+            <CalendlyButton className="w-full sm:w-auto" />
+          </div>
+
+          {/* Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card className="bg-gradient-primary/5 border-primary/10">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <Coffee className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="text-lg font-semibold mb-4">Find Me On</h4>
-                    <div className="flex gap-4">
-                      {socialLinks.map((link, index) => (
-                        <a
-                          key={index}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`p-3 bg-primary/5 rounded-lg hover:bg-primary/10 transition-all duration-300 ${link.color}`}
-                        >
-                          <link.icon className="w-5 h-5" />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Card className="bg-gradient-primary/5 border-primary/10">
-                    <CardContent className="p-4">
-                      <div className="flex items-center gap-3 text-sm">
-                        <Coffee className="w-4 h-4 text-primary" />
-                        <span className="font-medium">Available for freelance opportunities</span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                {/* Right Column - Quick Actions */}
-                <div className="md:col-span-7 space-y-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-6 gradient-text">Quick Response</h3>
-                    <p className="text-muted-foreground mb-6">
-                      For urgent inquiries or exciting opportunities, reach out directly.
-                      I typically respond within a few hours during business days.
+                    <h4 className="font-semibold mb-2">Available For</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Freelance projects, full-time roles, and exciting opportunities
                     </p>
-                    <div className="flex flex-wrap gap-4">
-                      <Button className="flex-1" size="lg">
-                        <Mail className="w-4 h-4 mr-2" />
-                        Send Email
-                      </Button>
-                      <CalendlyButton />
-                    </div>
                   </div>
-
-                  <Card className="bg-gradient-primary/5 border-primary/10">
-                    <CardContent className="p-6">
-                      <h4 className="font-bold mb-3">Currently Working On</h4>
-                      <p className="text-muted-foreground text-sm">
-                        Full Stack Development projects focusing on AI integration, real-time features,
-                        and scalable architecture.
-                      </p>
-                    </CardContent>
-                  </Card>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-primary/5 border-primary/10">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <Send className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-semibold mb-2">Response Time</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Usually within a few hours on business days
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>

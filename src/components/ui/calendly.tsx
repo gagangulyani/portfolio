@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Button } from './button';
 import { Calendar } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 declare global {
   interface Window {
@@ -10,7 +11,8 @@ declare global {
   }
 }
 
-export const CalendlyButton = () => {
+// Allow passing Button props (className, size, variant, etc.) so consumers can control width/style
+export const CalendlyButton: React.FC<React.ComponentProps<typeof Button>> = ({ className, size = 'lg', variant = 'outline', ...props }) => {
   useEffect(() => {
     // Add Calendly stylesheet
     const link = document.createElement('link');
@@ -26,8 +28,8 @@ export const CalendlyButton = () => {
 
     return () => {
       // Cleanup
-      document.head.removeChild(link);
-      document.body.removeChild(script);
+      if (document.head.contains(link)) document.head.removeChild(link);
+      if (document.body.contains(script)) document.body.removeChild(script);
     };
   }, []);
 
@@ -40,11 +42,12 @@ export const CalendlyButton = () => {
   };
 
   return (
-    <Button 
-      size="lg"
-      variant="outline"
-      className="border-primary/50 hover:bg-primary/10 hover:text-primary transition-colors"
+    <Button
+      size={size}
+      variant={variant}
+      className={cn('border-primary/50 hover:bg-primary/10 hover:text-primary transition-colors', className)}
       onClick={openCalendly}
+      {...props}
     >
       <Calendar className="w-5 h-5 mr-2" />
       Schedule a Call
