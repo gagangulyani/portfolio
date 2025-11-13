@@ -26,7 +26,7 @@ const ProfessionalJourney: React.FC = () => {
     {
       company: "Private Dating Platform",
       role: "Full-Stack Developer",
-      period: "Jul 2025 – Current",
+      period: "Aug 2025 – Current",
       type: "freelance",
       location: "Remote",
       bullets: [
